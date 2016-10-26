@@ -1,0 +1,7 @@
+install_dir: "/opt/bitnami"
+sandbox_dir: "/tmp/bitnami/sandbox"
+package:
+  name: "WordPress"
+  installer:
+    url: "https://bitnami.com/redirect/to/133461/bitnami-wordpress-4.6.1-5-linux-x64-installer.run"
+    file: wordpress.run
