@@ -1,9 +1,13 @@
 ---
-- name: Download and extract Python 2.7.12
+- name: Download Python source
+  get_url:
+    url: "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
+    dest: /tmp/python27.tar.xz
+
+- name: Extract Python 2.7.12
   unarchive:
-    src: "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
+    src: /tmp/python27.tar.xz
     dest: /tmp
-    remote_src: yes
 
 - name: Configure Python
   shell: ./configure
