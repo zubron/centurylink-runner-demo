@@ -14,6 +14,11 @@
   vars_files:
     - bitnami.yml
   tasks:
+    - name: Create sandbox directory
+      file:
+        path="{{ sandbox_dir }}"
+        state=directory
+
     - name: Download Bitnami WordPress installer
       get_url:
         url: "{{ package.installer.url }}"
