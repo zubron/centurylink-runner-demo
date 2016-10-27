@@ -5,3 +5,11 @@ package:
   installer:
     url: "https://bitnami.com/redirect/to/133461/bitnami-wordpress-4.6.1-5-linux-x64-installer.run"
     file: wordpress.run
+install_vars:
+  apache_server_port: 80
+  apache_server_ssl_port: 443
+  web_server_domain: "127.0.0.1"
+  mysql_port: 3306
+  base_user: bitnami
+  base_password: wordpress123!
+  base_mail: user@example.com

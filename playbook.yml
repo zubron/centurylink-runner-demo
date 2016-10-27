@@ -2,12 +2,12 @@
 - name: Start server
   hosts: localhost
   roles:
-    - { role: server, srv_name: WP-POC, src_template: ubuntu-14-64, srv_public: true, srv_ports: [22, 80, 443] }
+    - { role: server, srv_name: WP-POC, src_template: ubuntu-16-64, srv_public: true, srv_ports: [22, 80, 443] }
 
-- name: Update to latest Python 2.7
-  hosts: servers
-  roles:
-    - install-python-2.7.12
+# - name: Update to latest Python 2.7
+#   hosts: servers
+#   roles:
+#     - install-python-2.7.12
 
 - name: Install Bitnami WordPress
   hosts: servers
@@ -25,7 +25,23 @@
         dest: "{{ sandbox_dir}}/{{ package.installer.file }}"
         mode: "u+rwx"
 
-#    - name: Install WordPress on server
-#      command: "{{ package.installer.file }} --prefix {{ install_dir }}" --mode unattended --optionfile wordpress.options
-#      args:
-#        chdir: "{{ sandbox_dir }}"
+    - name: Install WordPress on server
+      command: >
+       "{{ package.installer.file }}"
+        --prefix "{{ install_dir }}"
+        --mode unattended
+        --apache_server_port "{{ install_vars.apache_server_port }}"
+        --apache_server_ssl_port "{{ install_vars.apache_server_ssl_port }}"
+        --web_server_domain "{{ install_vars.web_server_domain }}"
+        --mysql_port "{{ install_vars.mysql_port }}"
+        --base_user "{{ install_vars.base_user }}"
+        --base_password "{{ install_vars.base_password }}"
+        --base_mail  "{{ install_vars.base_mail }}"
+        --smtp_enable=0
+        --install_bnconfig_as_service=1
+        --bnconfigmodule_myipbitnami=1
+        --mysql_alphanumeric_password=0
+        --apache_mpm_mode=event
+        --enable_phpfpm=1
+      args:
+        chdir: "{{ sandbox_dir }}"
