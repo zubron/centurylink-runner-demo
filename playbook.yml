@@ -27,7 +27,7 @@
 
     - name: Install WordPress on server
       command: >
-       "{{ package.installer.file }}"
+        ./"{{ package.installer.file }}"
         --prefix "{{ install_dir }}"
         --mode unattended
         --apache_server_port "{{ install_vars.apache_server_port }}"
