@@ -1,4 +1,10 @@
 ---
+- name: Install Python build dependencies
+  apt:
+    name=python2.7
+    state=build-dep
+    update_cache=yes
+
 - name: Download Python source
   get_url:
     url: "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
@@ -25,3 +31,10 @@
   shell: make install
   args:
     chdir: /tmp/Python-2.7.12
+
+- name: Create symlink to newly installed Python
+  file:
+    src=/usr/local/bin/python2.7
+    dest=/usr/bin/python2.7
+    state=link
+    force=yes
