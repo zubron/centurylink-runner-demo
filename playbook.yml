@@ -4,10 +4,10 @@
   roles:
     - { role: server, srv_name: WP-POC, src_template: ubuntu-16-64, srv_public: true, srv_ports: [22, 80, 443] }
 
-# - name: Update to latest Python 2.7
-#   hosts: servers
-#   roles:
-#     - install-python-2.7.12
+- name: Update to latest Python 2.7
+  hosts: servers
+  roles:
+    - install-python-2.7.12
 
 - name: Install Bitnami WordPress
   hosts: servers
