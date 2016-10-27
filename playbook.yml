@@ -26,4 +26,6 @@
         mode: "u+rwx"
 
     - name: Install WordPress on server
-      script: "{{ sandbox_dir }}/{{ package.installer.file }} --prefix {{ install_dir }}"
+      command: "{{ package.installer.file }} --prefix {{ install_dir }}"
+      args:
+        chdir: "{{ sandbox_dir }}"
