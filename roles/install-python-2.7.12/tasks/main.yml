@@ -5,9 +5,10 @@
     dest: /tmp/python27.tar.xz
 
 - name: Extract Python 2.7.12
-  unarchive:
-    src: /tmp/python27.tar.xz
-    dest: /tmp
+  command: tar xf /tmp/python27.tar.xz
+  args:
+    chdir: /tmp
+    creates: /tmp/Python-2.7.12
 
 - name: Configure Python
   shell: ./configure
