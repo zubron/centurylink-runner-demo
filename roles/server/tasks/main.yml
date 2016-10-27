@@ -25,7 +25,7 @@
     groups=servers
     name={{ item.name }}
     ansible_ssh_user=root
-    ansible_ssh_host={{ item.ipAddresses[0].internal }}
+    ansible_ssh_host={{ item.ipaddress }}
     ansible_ssh_pass={{ serverpass.stdout }}
     publicip={{ item.publicip | d('') }}
   with_items: clc.servers
