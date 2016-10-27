@@ -6,7 +6,7 @@
 
 - name: Install Bitnami WordPress
   hosts: servers
-  vars_file:
+  vars_files:
     - bitnami.yml
   tasks:
     - name: Download Bitnami WordPress installer
