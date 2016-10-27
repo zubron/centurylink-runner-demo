@@ -9,11 +9,11 @@
   vars_file:
     - bitnami.yml
   tasks:
-    - name: Download Bitnami {{ package.name }} installer
+    - name: Download Bitnami WordPress installer
       get_url:
-        url: {{ package.installer.url }}
-        dest: {{ sandbox_dir}}/{{ package.installer.file }}
+        url: "{{ package.installer.url }}"
+        dest: "{{ sandbox_dir}}/{{ package.installer.file }}"
         mode: "u+rwx"
 
-    - name: Install {{ package.name }} on server
-      script: {{ sandbox_dir }}/{{ package.installer.file }} --prefix {{ install_dir }}
+    - name: Install WordPress on server
+      script: "{{ sandbox_dir }}/{{ package.installer.file }} --prefix {{ install_dir }}"
