@@ -2,7 +2,7 @@
 - name: Start server
   hosts: localhost
   roles:
-    - { role: server, srv_name: WP-POC, src_template: ubuntu-14-64, srv_public: true, public_ip_ports: [80, 443] }
+    - { role: server, srv_name: WP-POC, src_template: ubuntu-14-64, srv_public: true, srv_ports: [80, 443] }
 
 # - name: Install Bitnami WordPress
 #   hosts: servers
