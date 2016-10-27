@@ -37,11 +37,11 @@
         --base_user "{{ install_vars.base_user }}"
         --base_password "{{ install_vars.base_password }}"
         --base_mail  "{{ install_vars.base_mail }}"
-        --smtp_enable=0
-        --install_bnconfig_as_service=1
-        --bnconfigmodule_myipbitnami=1
-        --mysql_alphanumeric_password=0
-        --apache_mpm_mode=event
-        --enable_phpfpm=1
+        --smtp_enable 0
+        --install_bnconfig_as_service 1
+        --bnconfigmodule_myipbitnami 1
+        --mysql_alphanumeric_password 0
+        --apache_mpm_mode event
+        --enable_phpfpm 1
       args:
         chdir: "{{ sandbox_dir }}"
